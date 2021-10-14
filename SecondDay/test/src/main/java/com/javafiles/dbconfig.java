@@ -16,7 +16,7 @@ import javax.servlet.http.HttpSession;
 
 import com.javafiles.databaseConnection;
 	  
-	//@WebServlet("/print")
+	
 	public class dbconfig extends HttpServlet {
 	    private static final long serialVersionUID = 1L;
 	  
@@ -27,7 +27,6 @@ import com.javafiles.databaseConnection;
 
 	    	try {
 	  
-	            // Initialize the database
 	            Connection con = databaseConnection.initializeDatabase();
 	            Statement stmt = null;
 	            stmt = con.createStatement();
@@ -39,9 +38,6 @@ import com.javafiles.databaseConnection;
 
 	            HttpSession session = req.getSession();
 	            String user = (String) session.getAttribute("username");
-//	            String passw = (String) session.getAttribute("password");
-
-	            //String user = req.getParameter("userName");
 	          
 	            PrintWriter out = res.getWriter();
 
@@ -51,7 +47,14 @@ import com.javafiles.databaseConnection;
 	                 String roomname = resset.getString("roomtype");
 	                 out.println(roomid+"-"+roomname+"<br>");
 	            }
-	            con.close();
+
+		out.println("<a href="
+	            		+ "/test/login.jsp>");
+	            out.println("LogOut");
+	            out.println("</a>");
+	            session.invalidate();
+	            session.removeAttribute("username");	
+		con.close();
 	            	  
 	    	}
 	  
