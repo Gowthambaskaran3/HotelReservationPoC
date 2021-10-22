@@ -1,0 +1,10 @@
+@charset "ISO-8859-1";
+body{
+background-image:url(../images/ima-2.jpg);
+background-size: cover;
+background-repeat: no-repeat;
+font-family: 'lora';
+color: white;
+text-align: center;
+
+}
